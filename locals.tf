@@ -10,17 +10,17 @@ locals {
   #----------------------------------------------------------------------
  
     "auth" = {
-      name     = "psql-auth-service"
+      name     = "pgsql-fiap-auth"
       db_name  = "auth_db"
       sku_name = "B_Standard_B1ms"  # Burstable - mais econômico (~$12-15/mês)
     }
     "flag" = {
-      name     = "psql-flag-service"
+      name     = "pgsql-fiap-flag"
       db_name  = "flag_db"
       sku_name = "B_Standard_B1ms"
     }
     "targeting" = {
-      name     = "psql-targeting-service"
+      name     = "pgsql-fiap-targeting"
       db_name  = "targeting_db"
       sku_name = "B_Standard_B1ms"
     }

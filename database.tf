@@ -4,7 +4,7 @@ resource "azurerm_postgresql_flexible_server" "db" {
 
   name                = each.value.name
   resource_group_name = "rg-fiap-tech-challange"
-  location            = "Central US"
+  location            = "centralus"
   version             = "16"
 
   administrator_login    = local.db_admin_username
@@ -12,7 +12,7 @@ resource "azurerm_postgresql_flexible_server" "db" {
   public_network_access_enabled = false
 
 
-  delegated_subnet_id           = azurerm_subnet.private_2.id
+  delegated_subnet_id           = azurerm_subnet.private_db_centralus.id
   private_dns_zone_id           = azurerm_private_dns_zone.postgresql.id
 
 
@@ -26,6 +26,6 @@ resource "azurerm_postgresql_flexible_server" "db" {
   zone                         = "1"
 
   depends_on = [
-    azurerm_private_dns_zone_virtual_network_link.postgresql
+    azurerm_private_dns_zone_virtual_network_link.postgresql_centralus
   ]
 }
