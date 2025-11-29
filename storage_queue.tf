@@ -10,5 +10,5 @@ resource "azurerm_storage_account" "sa-togglemaster" {
 # Fila de mensagens (tipo SQS)
 resource "azurerm_storage_queue" "queue" {
   name                 = "fila-togglemaster"
-  storage_account_name = azurerm_storage_account.sa-togglemaster.name
+  storage_account_id  = azurerm_storage_account.sa-togglemaster.id
 }
