@@ -1,7 +1,7 @@
 resource "azurerm_cosmosdb_account" "cosmos" {
-  name                = "cosmosdb-togglemaster"
+  name                = "cosmosdb-togglemaster-fase-3"
   location            = "eastus2"
-  resource_group_name = "rg-fiap-tech-challange"
+  resource_group_name = "rg-fiap-tech-challange-fase-3"
 
   offer_type = "Standard"
   kind       = "GlobalDocumentDB"
@@ -13,7 +13,7 @@ resource "azurerm_cosmosdb_account" "cosmos" {
   }
 
   capabilities {
-    name = "EnableTable"     
+    name = "EnableTable"
   }
 
   capabilities {
@@ -21,13 +21,13 @@ resource "azurerm_cosmosdb_account" "cosmos" {
   }
 
   geo_location {
-  location            = "eastus2"
+    location          = "eastus2"
     failover_priority = 0
   }
 }
 
 resource "azurerm_cosmosdb_table" "table" {
   name                = "togglemaster"
-  resource_group_name = "rg-fiap-tech-challange"
+  resource_group_name = "rg-fiap-tech-challange-fase-3"
   account_name        = azurerm_cosmosdb_account.cosmos.name
 }
