@@ -1,7 +1,7 @@
 resource "azurerm_kubernetes_cluster" "aks" {
   name                = "aks-togglemaster"
-  location            = "eastus2"
-  resource_group_name = "rg-fiap-tech-challange"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
   dns_prefix          = "togglemaster"
 
   sku_tier = "Free"
@@ -43,7 +43,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "default_pool" {
   min_count             = 1
   max_count             = 2
   mode                  = "System"
-  
+
   lifecycle {
     ignore_changes = [
       upgrade_settings
