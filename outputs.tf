@@ -21,3 +21,4 @@ output "redis_hostname" {
 output "redis_ssl_port" {
   value = azurerm_redis_cache.redis.ssl_port
 }
+
