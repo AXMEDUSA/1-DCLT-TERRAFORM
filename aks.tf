@@ -57,9 +57,13 @@ resource "azurerm_kubernetes_cluster_node_pool" "default_pool" {
   # ADICIONADO: Conectar node pool à vnet-fiap-tech
   vnet_subnet_id        = azurerm_subnet.private_1.id
   auto_scaling_enabled  = true
-  min_count             = 2
+  min_count             = 1
   max_count             = 3
   mode                  = "System"
+
+  upgrade_settings {
+    max_surge = 0
+  }
 
   lifecycle {
     ignore_changes = [

@@ -5,7 +5,7 @@ resource "azurerm_postgresql_flexible_server" "auth" {
   resource_group_name    = azurerm_resource_group.rg.name
   version                = "15"
   administrator_login    = "adminuser"
-  administrator_password = senha123
+  administrator_password = "senha@123"
   zone                              = "2" 
 
   storage_mb             = 32768
@@ -14,8 +14,8 @@ resource "azurerm_postgresql_flexible_server" "auth" {
 
   sku_name = "B_Standard_B1ms"
 
-  # Desabilitar acesso público
-  public_network_access_enabled = false
+  # Habilitar acesso público
+  public_network_access_enabled = true
 
   tags = {
     env        = "fiap-tech-challange"

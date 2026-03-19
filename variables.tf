@@ -14,9 +14,8 @@ variable "acr_name" {
 }
 
 variable "db_admin_password" {
-
-  type = string
-  description = "senha123"
-  sensitive = true
-  
+  type        = string
+  description = "Senha do administrador PostgreSQL"
+  sensitive   = true
+  default     = "senha123"
 }
