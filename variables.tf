@@ -12,3 +12,11 @@ variable "acr_name" {
   type    = string
   default = "toggleacrfase3" # precisa ser único globalmente
 }
+
+variable "db_admin_password" {
+
+  type = string
+  description = "senha_123"
+  sensitive = true
+  
+}
