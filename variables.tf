@@ -16,7 +16,7 @@ variable "acr_name" {
 variable "db_admin_password" {
 
   type = string
-  description = "senha_123"
+  description = "senha123"
   sensitive = true
   
 }

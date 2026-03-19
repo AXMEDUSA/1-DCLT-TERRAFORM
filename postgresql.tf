@@ -5,7 +5,7 @@ resource "azurerm_postgresql_flexible_server" "auth" {
   resource_group_name    = azurerm_resource_group.rg.name
   version                = "15"
   administrator_login    = "adminuser"
-  administrator_password = var.db_admin_password
+  administrator_password = senha123
   zone                              = "2" 
 
   storage_mb             = 32768
@@ -60,7 +60,7 @@ resource "azurerm_postgresql_flexible_server" "targeting" {
   resource_group_name    = azurerm_resource_group.rg.name
   version                = "15"
   administrator_login    = "adminuser"
-  administrator_password = "senha@123"
+  administrator_password = var.db_admin_password
   zone = "1"    
 
   storage_mb             = 32768
