@@ -5,7 +5,7 @@ resource "azurerm_postgresql_flexible_server" "auth" {
   resource_group_name    = azurerm_resource_group.rg.name
   version                = "15"
   administrator_login    = "adminuser"
-  administrator_password = "senha@123"
+  administrator_password = "senha_123"
   zone                              = "2" 
 
   storage_mb             = 32768
