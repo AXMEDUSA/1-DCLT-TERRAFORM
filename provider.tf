@@ -11,6 +11,6 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "fda970a4-53ed-46be-bc79-6b0570f82c08"
-  tenant_id       = "6fcf4470-ae53-44a3-ae92-445dc58c2b34"
+  subscription_id = "ae352d8a-54b2-4e9c-adc6-3690dba03c13"
+  tenant_id       = "3d8de9da-a6fd-4398-be01-329fdfbb01f4"
 }

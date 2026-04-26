@@ -1,7 +1,7 @@
 # Storage Account (necessária para Queue)
 resource "azurerm_storage_account" "sa-togglemaster" {
-  name                     = "satogglemasterf3"
-  resource_group_name      = "rg-fiap-tech-challange-fase-3"
+  name                     = "satogglemasterf4"
+  resource_group_name      = "rg-fiap-tech-challange-fase-4"
   location                 = "eastus2"
   account_tier             = "Standard"
   account_replication_type = "LRS"

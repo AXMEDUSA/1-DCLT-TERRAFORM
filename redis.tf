@@ -1,7 +1,7 @@
 resource "azurerm_redis_cache" "redis" {
-  name                = "redis-togglemaster-fase-3"
+  name                = "redis-togglemaster-fase-4"
   location            = "eastus2"
-  resource_group_name = "rg-fiap-tech-challange-fase-3"
+  resource_group_name = "rg-fiap-tech-challange-fase-4"
 
   sku_name = "Basic"
   family   = "C"

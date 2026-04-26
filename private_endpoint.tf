@@ -21,7 +21,7 @@ resource "azurerm_private_endpoint" "postgres_endpoint_auth" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   # MODIFICADO: Usar subnet da vnet-fiap-tech
-  subnet_id           = azurerm_subnet.private_1.id
+  subnet_id = azurerm_subnet.private_1.id
 
   private_service_connection {
     name                           = "psc-postgresql-auth"
@@ -44,7 +44,7 @@ resource "azurerm_private_endpoint" "postgres_endpoint_flag" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   # MODIFICADO: Usar subnet da vnet-fiap-tech
-  subnet_id           = azurerm_subnet.private_1.id
+  subnet_id = azurerm_subnet.private_1.id
 
   private_service_connection {
     name                           = "psc-postgresql-flag"
@@ -67,7 +67,7 @@ resource "azurerm_private_endpoint" "postgres_endpoint_targeting" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
   # MODIFICADO: Usar subnet da vnet-fiap-tech
-  subnet_id           = azurerm_subnet.private_1.id
+  subnet_id = azurerm_subnet.private_1.id
 
   private_service_connection {
     name                           = "psc-postgresql-targeting"
