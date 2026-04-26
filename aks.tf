@@ -47,24 +47,3 @@ resource "azurerm_kubernetes_cluster" "aks" {
     azurerm_subnet.aks_private
   ]
 }
-
-resource "azurerm_kubernetes_cluster_node_pool" "default_pool" {
-  name                  = "togglemaster"
-  kubernetes_cluster_id = azurerm_kubernetes_cluster.aks.id
-  vm_size               = var.aks_vm_size
-  vnet_subnet_id        = azurerm_subnet.aks_private.id
-  auto_scaling_enabled  = true
-  min_count             = 1
-  max_count             = 3
-  mode                  = "System"
-
-  upgrade_settings {
-    max_surge = 0
-  }
-
-  lifecycle {
-    ignore_changes = [
-      upgrade_settings
-    ]
-  }
-}

@@ -1,11 +1,11 @@
 
 resource "azurerm_postgresql_flexible_server" "auth" {
-  name                   = "auth-fiap"
+  name                   = "pg-auth-togglemaster-fase4"
   location               = "centralus"
   resource_group_name    = azurerm_resource_group.rg.name
   version                = "15"
   administrator_login    = "adminuser"
-  administrator_password = "senha@123"
+  administrator_password = var.db_admin_password
   zone                   = "2"
 
   storage_mb                   = 32768
@@ -28,7 +28,7 @@ resource "azurerm_postgresql_flexible_server" "auth" {
 
 
 resource "azurerm_postgresql_flexible_server" "flag" {
-  name                   = "flag"
+  name                   = "pg-flag-togglemaster-fase4"
   location               = "centralus"
   resource_group_name    = azurerm_resource_group.rg.name
   version                = "15"
@@ -55,7 +55,7 @@ resource "azurerm_postgresql_flexible_server" "flag" {
 }
 
 resource "azurerm_postgresql_flexible_server" "targeting" {
-  name                   = "targeting"
+  name                   = "pg-targeting-togglemaster-fase4"
   location               = "centralus"
   resource_group_name    = azurerm_resource_group.rg.name
   version                = "15"
@@ -80,5 +80,4 @@ resource "azurerm_postgresql_flexible_server" "targeting" {
 
   depends_on = [azurerm_private_dns_zone_virtual_network_link.postgresql_vnet_link]
 }
-
 
