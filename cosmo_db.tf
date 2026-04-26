@@ -1,7 +1,7 @@
 resource "azurerm_cosmosdb_account" "cosmos" {
-  name                = "cosmosdb-togglemaster-fase-3"
+  name                = "cosmosdb-togglemaster-fase-4"
   location            = "eastus2"
-  resource_group_name = "rg-fiap-tech-challange-fase-3"
+  resource_group_name = "rg-fiap-tech-challange-fase-4"
 
   offer_type = "Standard"
   kind       = "GlobalDocumentDB"
@@ -28,6 +28,6 @@ resource "azurerm_cosmosdb_account" "cosmos" {
 
 resource "azurerm_cosmosdb_table" "table" {
   name                = "togglemaster"
-  resource_group_name = "rg-fiap-tech-challange-fase-3"
+  resource_group_name = "rg-fiap-tech-challange-fase-4"
   account_name        = azurerm_cosmosdb_account.cosmos.name
 }
