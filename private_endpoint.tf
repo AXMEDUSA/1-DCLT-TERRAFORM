@@ -11,9 +11,13 @@ resource "azurerm_private_dns_zone_virtual_network_link" "postgresql_vnet_link" 
   resource_group_name   = azurerm_resource_group.rg.name
   private_dns_zone_name = azurerm_private_dns_zone.postgresql.name
   virtual_network_id    = azurerm_virtual_network.vnet.id
+}
 
-  # ADICIONADO: Esperar o cluster AKS estar up
-  depends_on = [azurerm_kubernetes_cluster.aks]
+resource "azurerm_private_dns_zone_virtual_network_link" "postgresql_aks_vnet_link" {
+  name                  = "postgresql-aks-vnet-link"
+  resource_group_name   = azurerm_resource_group.rg.name
+  private_dns_zone_name = azurerm_private_dns_zone.postgresql.name
+  virtual_network_id    = azurerm_virtual_network.aks_vnet.id
 }
 
 resource "azurerm_private_endpoint" "postgres_endpoint_auth" {
@@ -34,9 +38,6 @@ resource "azurerm_private_endpoint" "postgres_endpoint_auth" {
     name                 = "postgresql-zone-group"
     private_dns_zone_ids = [azurerm_private_dns_zone.postgresql.id]
   }
-
-  # ADICIONADO: Esperar o cluster AKS estar up
-  depends_on = [azurerm_kubernetes_cluster.aks]
 }
 
 resource "azurerm_private_endpoint" "postgres_endpoint_flag" {
@@ -57,9 +58,6 @@ resource "azurerm_private_endpoint" "postgres_endpoint_flag" {
     name                 = "postgresql-zone-group"
     private_dns_zone_ids = [azurerm_private_dns_zone.postgresql.id]
   }
-
-  # ADICIONADO: Esperar o cluster AKS estar up
-  depends_on = [azurerm_kubernetes_cluster.aks]
 }
 
 resource "azurerm_private_endpoint" "postgres_endpoint_targeting" {
@@ -80,7 +78,4 @@ resource "azurerm_private_endpoint" "postgres_endpoint_targeting" {
     name                 = "postgresql-zone-group"
     private_dns_zone_ids = [azurerm_private_dns_zone.postgresql.id]
   }
-
-  # ADICIONADO: Esperar o cluster AKS estar up
-  depends_on = [azurerm_kubernetes_cluster.aks]
 }

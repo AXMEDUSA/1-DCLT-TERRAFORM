@@ -45,6 +45,20 @@ resource "azurerm_subnet" "aks_private" {
   address_prefixes     = ["10.2.1.0/24"]
 }
 
+resource "azurerm_virtual_network_peering" "main_to_aks" {
+  name                      = "peer-vnet-fiap-tech-to-aks"
+  resource_group_name       = azurerm_resource_group.rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet.name
+  remote_virtual_network_id = azurerm_virtual_network.aks_vnet.id
+}
+
+resource "azurerm_virtual_network_peering" "aks_to_main" {
+  name                      = "peer-vnet-aks-to-fiap-tech"
+  resource_group_name       = azurerm_resource_group.rg.name
+  virtual_network_name      = azurerm_virtual_network.aks_vnet.name
+  remote_virtual_network_id = azurerm_virtual_network.vnet.id
+}
+
 
 # resource "azurerm_subnet" "private_2" {
 # name = "snet-private-2"
